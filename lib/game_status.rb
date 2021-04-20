@@ -32,13 +32,13 @@ def won?(board)
   return false
 end
 
-#def full?(board)
-#  if board.any? {|index| index == nil || index == " "}
-#    return false
-#  else
-#    return true
-#  end
-#end
+def full?(board)
+  if board.any? {|index| index == nil || index == " "}
+    return false
+  else
+    return true
+  end
+end
 
 #def draw?(board)
 #   if !won?(board) && full?(board)
