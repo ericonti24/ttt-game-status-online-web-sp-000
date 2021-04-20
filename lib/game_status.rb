@@ -16,34 +16,21 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  win_conditions.each do |win|
-  #  returns an array of matching indexes for a win
-  if win.all?{|y| board[y] == "X"}
-    return win
-    elsif win.all?{|y| board[y] == "O"}
-      return win
+  WIN_COMBINATIONS.each do |single_win_combo|
+    win_index_1 = single_win_combo[0]
+    win_index_2 = single_win_combo[1]
+    win_index_3 = single_win_combo[2]
+
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
+
+    if position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
+      return single_win_combo
     end
   end
-  return false # returns false for an empty board / a draw
-end
+  return false
 
-
-#def won?(board)
-#  WIN_COMBINATIONS.each do |single_win_combo|
-#    win_index_1 = single_win_combo[0]
-#    win_index_2 = single_win_combo[1]
-#    win_index_3 = single_win_combo[2]
-
-#    position_1 = board[win_index_1]
-#    position_2 = board[win_index_2]
-#    position_3 = board[win_index_3]
-
-#    if position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
-#      return single_win_combo
-#    end
-#  end
-#  return false
-#
 #def full?(board)
 #  if board.any? {|index| index == nil || index == " "}
 #    return false
