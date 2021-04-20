@@ -24,7 +24,7 @@ def won?(board)
    position_1 = board[win_index_1] # value of board at win_index_1
    position_2 = board[win_index_2] # value of board at win_index_2
    position_3 = board[win_index_3] # value of board at win_index_3
-   
+
    position_1 == "X" position_2 == "X" && position_3 == "X"
    return WIN_COMBINATIONS
  end
